@@ -51,6 +51,9 @@ class _LoginPageState extends State<_LoginPage> {
       _counter++;
     });
   }
+   void getAndValidate(){
+
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -67,20 +70,36 @@ class _LoginPageState extends State<_LoginPage> {
         title: new Text(widget.title),
       ),
       body: new Container(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+       // margin: new EdgeInsets.only(top: 10.0),
+        padding: new EdgeInsets.all(20.0),
         child: new Form(
            child: new Column(
+             crossAxisAlignment: CrossAxisAlignment.stretch,
              children: <Widget>[
                new TextField(
                  decoration: new InputDecoration(labelText: 'Email'),
                ),
                new TextField(
                  decoration: new InputDecoration(labelText: 'Password'),
+                 obscureText: true,
                ),
+               new Container(
+                 margin: new EdgeInsets.only(top: 10.0),
+                 child: new RaisedButton(
+                   onPressed: getAndValidate,
+                   child: new Text(
+                     'Log In',
+                     style: new TextStyle(fontSize: 20.0),
+                   ),
+               ),
+               ),
+
              ],
            )
         ),
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+
       ),
       floatingActionButton: new FloatingActionButton(
         onPressed: _incrementCounter,
